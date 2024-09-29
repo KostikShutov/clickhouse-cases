@@ -1,0 +1,16 @@
+services:
+  clickhouse:
+    image: 'clickhouse/clickhouse-server:latest'
+    container_name: click52
+    environment:
+      - CLICKHOUSE_USER=click52
+      - CLICKHOUSE_PASSWORD=click52
+      - CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT=1
+      - CLICKHOUSE_DB=mydb
+    volumes:
+      - './data:/var/lib/clickhouse'
+      - './logs:/var/log/clickhouse-server'
+      - './sets:/sets'
+    ports:
+      - 8123:8123
+      - 9000:9000
